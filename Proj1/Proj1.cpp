@@ -2,11 +2,12 @@
 //
 
 #include <iostream>
-#include "task1.cpp"
+#include "task1.h"
 
 int main()
 {
     std::cout << "Hello World!\n";
+    task1();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

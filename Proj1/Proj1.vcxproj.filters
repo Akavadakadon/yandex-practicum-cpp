@@ -18,5 +18,19 @@
     <ClCompile Include="Proj1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="task1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="task1_relevantDocs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="task1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="task1_relevantDocs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
