@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include "task1.cpp"
 
 int main()
 {
