@@ -3,8 +3,10 @@
 #include <algorithm>
 #include <numeric>
 #include <set>
+#include <chrono>
 
 #include "task1_relevantDocs.h"
+//#include "tesk1_execute.h"
 
 using namespace std;
 
@@ -118,6 +120,42 @@ int numeric_accumulate2()
     return 0;
 }
 
+const int SAMPLE_COUNT = 5;
+
+vector<int> CountNames(const set<string>& storage, const vector<string>& candidates) {
+    vector<int> output;
+    for (auto& name : candidates) {
+        output.push_back(count(storage.begin(), storage.end(), name)>=1);
+    }
+    return output;
+}
+
+void SetCount()
+{
+    set<string> s;
+    vector<string> v;
+    string stra = ""s;
+    string strb = ""s;
+
+    for (int j = 0; j < 100; ++j) {
+        s.insert(stra);
+        stra += "a"s;
+        if (j % 2 == 0) {
+            v.push_back(strb);
+            strb += "b"s;
+        }
+        else {
+            v.push_back(stra);
+        }
+    }
+    cout << "Testing slow version" << endl;
+    for (int i = 0; i < SAMPLE_COUNT; ++i) {
+        auto begin = chrono::steady_clock::now();
+        CountNames(s, v);
+        auto end = chrono::steady_clock::now();
+        cout << "Time difference Long = "s << chrono::duration_cast<chrono::microseconds>(end - begin).count() << "[micro sec]"s << endl;
+    }
+}
 
 int task1() {
     count();
@@ -130,6 +168,9 @@ int task1() {
     numeric_accumulate2();
 
     FindRelevantDocs();
+    SetCount();
+
+    //execute();
 
     return 0;
 }
