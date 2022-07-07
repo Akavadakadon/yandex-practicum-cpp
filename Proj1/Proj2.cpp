@@ -18,8 +18,8 @@ void task5()
 
 void Proj2()
 {
-	FindRelevantDocs();
+    cout << "\n\t\tSecond chapter\n" << endl;
+    taskTwo::FindRelevantDocs();
     cout << "\nSerch engine works as the class\n" << endl;
-
     task5();
 }

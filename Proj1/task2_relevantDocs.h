@@ -1,3 +1,6 @@
 #pragma once
 
-int FindRelevantDocs();
+namespace taskTwo
+{
+	int FindRelevantDocs();
+}

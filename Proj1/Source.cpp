@@ -3,10 +3,12 @@
 
 #include <iostream>
 #include "Proj2.h"
+#include "task1.h"
 
 int main()
 {
     std::cout << "Hello World!\n";
+    task1();
     Proj2();
 }
 

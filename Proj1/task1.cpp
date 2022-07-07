@@ -158,6 +158,7 @@ void SetCount()
 }
 
 int task1() {
+    cout << "\n\t\tFirst chapter\n" << endl;
     count();
     count2();
 
@@ -167,7 +168,7 @@ int task1() {
     numeric_accumulate();
     numeric_accumulate2();
 
-    FindRelevantDocs();
+    taskOne::FindRelevantDocs();
     SetCount();
 
     //execute();
