@@ -4,12 +4,14 @@
 #include <iostream>
 #include "Proj2.h"
 #include "task1.h"
+#include "task3.h"
 
 int main()
 {
     std::cout << "Hello World!\n";
-    task1();
-    Proj2();
+    //task1();
+    //Proj2();
+    Task3();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

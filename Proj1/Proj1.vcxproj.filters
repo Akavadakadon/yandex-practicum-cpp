@@ -33,6 +33,9 @@
     <ClCompile Include="task1_relevantDocs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="task3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="task2_relevantDocs.h">
@@ -48,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="task1_relevantDocs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="task3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
