@@ -12,7 +12,7 @@ int SearchServer::GetStopWordsSize()
     return stop_words_.size();
 }
 
-vector<string> SearchServer::SplitIntoWordsNoStop(const string& text)
+vector<string> SearchServer::SplitIntoWordsNoStop(const string& text) const
 {
     vector<string> words;
     for (const string& word : SplitIntoWords(text)) {
@@ -23,7 +23,7 @@ vector<string> SearchServer::SplitIntoWordsNoStop(const string& text)
     return words;
 }
 
-vector<string> SearchServer::SplitIntoWords(const string& text)
+vector<string> SearchServer::SplitIntoWords(const string& text) const
 {
     vector<string> words;
     string word;
@@ -74,7 +74,7 @@ SearchServer SearchServer::CreateSearchServer()
     return search_server;
 }
 
-vector<Document> SearchServer::FindAllDocuments(const string& query)
+vector<Document> SearchServer::FindAllDocuments(const string& query) const
 {
     const vector<string> query_words = SplitIntoWordsNoStop(query);
     map<int, int> document_to_relevance;
@@ -94,7 +94,7 @@ vector<Document> SearchServer::FindAllDocuments(const string& query)
     return found_documents;
 }
 
-vector<Document> SearchServer::FindTopDocuments(const string& query)
+vector<Document> SearchServer::FindTopDocuments(const string& query) const
 {
     vector<Document> all_documents;
     all_documents = FindAllDocuments(query);

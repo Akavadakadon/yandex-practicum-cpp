@@ -26,9 +26,9 @@ private:
     map<string, set<int>> word_to_documents_;
     set<string> stop_words_;
 
-    vector<string> SplitIntoWords(const string& text);
-    vector<string> SplitIntoWordsNoStop(const string& text);
-    vector<Document> FindAllDocuments(const string& query);
+    vector<string> SplitIntoWords(const string& text) const;
+    vector<string> SplitIntoWordsNoStop(const string& text) const;
+    vector<Document> FindAllDocuments(const string& query)const;
 
 public:
     SearchServer();
@@ -38,6 +38,6 @@ public:
     int GetStopWordsSize();
     void AddDocument(int document_id, const string& document);
     set<string> SetStopWords(const string& text);    
-    vector<Document> FindTopDocuments(const string& query);
+    vector<Document> FindTopDocuments(const string& query) const;
 };
 

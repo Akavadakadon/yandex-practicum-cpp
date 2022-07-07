@@ -7,7 +7,7 @@ using namespace std;
 void task5()
 {
     SearchServer server;
-    SearchServer asd = server.CreateSearchServer();
+    const SearchServer asd = server.CreateSearchServer();
 
     const string query("funny fat cat on a mat with rat");
     for (auto [document_id, relevance] : asd.FindTopDocuments(query)) {
