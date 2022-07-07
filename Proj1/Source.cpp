@@ -1,13 +1,13 @@
-﻿// Proj1.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// Proj1.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
-#include "task1.h"
+#include "Proj2.h"
 
 int main()
 {
     std::cout << "Hello World!\n";
-    task1();
+    Proj2();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
