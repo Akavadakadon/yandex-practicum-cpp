@@ -1,32 +1,25 @@
 #include <iostream>
-#include <map>
-#include <set>
-#include <string>
-#include <vector>
 #include "task2_relevantDocs.h"
+#include "SearchServer.h"
 
 using namespace std;
-
-class SearchServer {
-    map<string, set<int>> word_to_documents_;
-    set<string> stop_words_;
-public:
-    int GetStopWordsSize()
-    {
-        return stop_words_.size();
-    }
-
-};
 
 void task5()
 {
     SearchServer server;
-    cout << server.GetStopWordsSize() << endl;
+    SearchServer asd = server.CreateSearchServer();
+
+    const string query("funny fat cat on a mat with rat");
+    for (auto [document_id, relevance] : asd.FindTopDocuments(query)) {
+        cout << "{ document_id = "s << document_id << ", relevance = "s << relevance << " }"s << endl;
+    }
+
 }
 
 void Proj2()
 {
 	FindRelevantDocs();
+    cout << "\nSerch engine works as the class\n" << endl;
 
     task5();
 }
