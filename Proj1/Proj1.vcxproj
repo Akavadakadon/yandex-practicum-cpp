@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FinTask.cpp" />
     <ClCompile Include="Proj2.cpp" />
     <ClCompile Include="SearchServer.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -149,6 +150,7 @@
     <ClCompile Include="task3.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FinTask.h" />
     <ClInclude Include="Proj2.h" />
     <ClInclude Include="SearchServer.h" />
     <ClInclude Include="task1.h" />
