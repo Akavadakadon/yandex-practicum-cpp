@@ -13,10 +13,42 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="sprint2">
+      <UniqueIdentifier>{129a2b5e-0a78-4a2d-8dc9-05e0270c7597}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sprint2\Header Files">
+      <UniqueIdentifier>{0cd7d1b6-4a03-47e7-b7c8-96654ade5401}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sprint2\Source Files">
+      <UniqueIdentifier>{cb01d260-16e2-46be-be4e-e1fc18219889}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Proj1.cpp">
+    <ClCompile Include="Soure.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="sprint2.cpp">
+      <Filter>sprint2</Filter>
+    </ClCompile>
+    <ClCompile Include="Testing.cpp">
+      <Filter>sprint2\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Synonyms.cpp">
+      <Filter>sprint2\Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="sprint2.h">
+      <Filter>sprint2</Filter>
+    </ClInclude>
+    <ClInclude Include="Testing.h">
+      <Filter>sprint2\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadFromConsole.h">
+      <Filter>sprint2</Filter>
+    </ClInclude>
+    <ClInclude Include="Synonyms.h">
+      <Filter>sprint2\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

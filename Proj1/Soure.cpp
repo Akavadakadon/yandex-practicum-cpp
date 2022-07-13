@@ -2,10 +2,12 @@
 //
 
 #include <iostream>
+#include "sprint2.h"
 
 int main()
 {
     std::cout << "Hello World!\n";
+    Sprint2();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
