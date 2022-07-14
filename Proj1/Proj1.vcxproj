@@ -139,12 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Buses.cpp" />
     <ClCompile Include="Soure.cpp" />
     <ClCompile Include="sprint2.cpp" />
     <ClCompile Include="Synonyms.cpp" />
     <ClCompile Include="Testing.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Buses.h" />
     <ClInclude Include="ReadFromConsole.h" />
     <ClInclude Include="sprint2.h" />
     <ClInclude Include="Synonyms.h" />

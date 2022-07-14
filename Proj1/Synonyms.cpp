@@ -52,6 +52,16 @@ void TestAddingSynonymsIncreasesTheirCount() {
 }
 
 void TestAreSynonyms() {
+    Synonyms synonyms;
+    assert(synonyms.AreSynonyms("music"s, "melody"s) == 0);
+
+    synonyms.Add("music"s, "melody"s);
+    assert(synonyms.AreSynonyms("music"s, "melody"s) == 1);
+
+    synonyms.Add("music"s, "tune"s);
+    assert(synonyms.AreSynonyms("music"s, "tune"s) == 1);
+    assert(synonyms.AreSynonyms("tune"s, "melody"s) == 0);
+    assert(synonyms.AreSynonyms("melody"s, "tune"s) == 0);
     // Напишите недостающий код
 }
 

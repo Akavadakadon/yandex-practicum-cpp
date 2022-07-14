@@ -36,6 +36,9 @@
     <ClCompile Include="Synonyms.cpp">
       <Filter>sprint2\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Buses.cpp">
+      <Filter>sprint2\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sprint2.h">
@@ -48,6 +51,9 @@
       <Filter>sprint2</Filter>
     </ClInclude>
     <ClInclude Include="Synonyms.h">
+      <Filter>sprint2\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Buses.h">
       <Filter>sprint2\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

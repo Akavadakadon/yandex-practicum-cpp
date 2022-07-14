@@ -3,6 +3,7 @@
 #include <cassert>
 #include "ReadFromConsole.h"
 #include "Synonyms.h"
+#include "Buses.h"
 
 using namespace std;
 
@@ -44,6 +45,7 @@ void Testing()
 	//string asd = ReadFromConsole::ReadLine();
 	Testing_IsPalindrome();
 	SynonymsTask();
+	BusesTask();
 	cout << "\n\nTesting\n\n";
 }
 
