@@ -116,7 +116,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -151,8 +151,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FinTask.h" />
+    <ClInclude Include="NumericTypes07.h" />
     <ClInclude Include="Proj2.h" />
     <ClInclude Include="SearchServer.h" />
+    <ClInclude Include="Sprint1.h" />
     <ClInclude Include="task1.h" />
     <ClInclude Include="task1_relevantDocs.h" />
     <ClInclude Include="task2_relevantDocs.h" />
