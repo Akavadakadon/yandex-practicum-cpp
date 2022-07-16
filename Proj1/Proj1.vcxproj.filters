@@ -13,75 +13,54 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="sprint 1">
-      <UniqueIdentifier>{2c964b8e-dc0f-4af9-aec5-7a4fbd318137}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="sprint 1\Header Files">
-      <UniqueIdentifier>{e3d26eda-e580-4b17-8ab7-e7ebbb06563e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="sprint 1\Source Files">
-      <UniqueIdentifier>{40e3abbb-3a10-4fd0-b883-01adafac91d9}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Proj2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="task3.cpp">
-      <Filter>sprint 1\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FinTask.cpp">
-      <Filter>sprint 1\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Proj2.cpp">
-      <Filter>sprint 1\Source Files</Filter>
+    <ClCompile Include="task2_relevantDocs.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SearchServer.cpp">
-      <Filter>sprint 1\Source Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="task1.cpp">
-      <Filter>sprint 1\Source Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="task1_relevantDocs.cpp">
-      <Filter>sprint 1\Source Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="task2_relevantDocs.cpp">
-      <Filter>sprint 1\Source Files</Filter>
+    <ClCompile Include="task3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FinTask.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="task3.h">
-      <Filter>sprint 1\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FinTask.h">
-      <Filter>sprint 1\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Proj2.h">
-      <Filter>sprint 1\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SearchServer.h">
-      <Filter>sprint 1\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="task1.h">
-      <Filter>sprint 1\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="task1_relevantDocs.h">
-      <Filter>sprint 1\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="task2_relevantDocs.h">
-      <Filter>sprint 1\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Sprint1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="NumericTypes07.h">
-      <Filter>sprint 1\Header Files</Filter>
+    <ClInclude Include="Proj2.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="PairsAndCorteges08.h">
-      <Filter>sprint 1\Header Files</Filter>
+    <ClInclude Include="SearchServer.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-=======
->>>>>>> 5b2989887d891673d7231b7eca7f0d431ade1134
+    <ClInclude Include="task1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="task1_relevantDocs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="task3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FinTask.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

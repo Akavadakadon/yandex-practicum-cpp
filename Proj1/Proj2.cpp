@@ -10,7 +10,7 @@ void task5()
     const SearchServer asd = server.CreateSearchServer();
 
     const string query("funny fat cat on a mat with rat");
-    for (auto [document_id, relevance, status, rating] : asd.FindTopDocuments(query)) {
+    for (auto [document_id, relevance] : asd.FindTopDocuments(query)) {
         cout << "{ document_id = "s << document_id << ", relevance = "s << relevance << " }"s << endl;
     }
 

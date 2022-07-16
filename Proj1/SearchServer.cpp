@@ -8,31 +8,6 @@ void SearchServer::AddDocument(int document_id, const string& document)
     }
 }
 
-int SearchServer::ComputeAverageRating(const vector<int>& ratings)
-{
-    if (ratings.empty()) {
-        return 0;
-    }
-    double rating = std::accumulate(ratings.begin(), ratings.end(), 0);
-    rating /= ratings.size();
-    return rating;
-}
-
-void SearchServer::AddDocument(int document_id, const string& document, vector<int> ratings)
-{
-    docs_counter++;
-    for (const string& word : SplitIntoWordsNoStop(document)) {
-        word_to_documents_[word].insert(document_id);
-    }
-    this->ratings[document_id] = ComputeAverageRating(ratings);
-}
-
-void SearchServer::AddDocument(int document_id, const string& document, DocumentStatus status, vector<int> ratings)
-{
-    this->statuses[document_id] = status;
-    AddDocument(document_id, document, ratings);
-}
-
 int SearchServer::GetStopWordsSize()
 {
     return stop_words_.size();
@@ -119,6 +94,10 @@ vector<Document> SearchServer::FindAllDocuments(const string& query, vector<stri
         }
         int count = word_to_documents_.find(word)->second.size();
         IDF[word]=(log((double)docs_counter / count));
+
+        //for (const int document_id : word_to_documents_.at(word)) {
+        //    ++document_to_relevance[document_id];
+        //}
     }
 
     for (auto doc : word_to_documents_)
@@ -147,13 +126,7 @@ vector<Document> SearchServer::FindAllDocuments(const string& query, vector<stri
     vector<Document> found_documents;
     for (auto [document_id, relevance] : document_to_relevance) {
         if (find(failed.begin(), failed.end(), document_id) == failed.end())
-            ;
-            found_documents.push_back({
-            .document_id = document_id,
-            .relevance = relevance,
-            .rating=ratings.size()!=0? ratings.at(document_id):NULL ,
-            .status = statuses.size() != 0 ? statuses.at(document_id) : DocumentStatus::NOSTATUS
-                });
+            found_documents.push_back({ document_id, relevance });
     }
     return found_documents;
 }
@@ -166,18 +139,6 @@ vector<Document> SearchServer::FindTopDocuments(const string& query) const
     sort(all_documents.begin(), all_documents.end(), [](Document x, Document y) {return x.relevance > y.relevance; });
     vector<Document> top_documents(all_documents.begin(), all_documents.begin() + (MAX_RESULT_DOCUMENT_COUNT <= all_documents.size() ? MAX_RESULT_DOCUMENT_COUNT : all_documents.size()));
     return top_documents;
-}
-
-vector<Document> SearchServer::FindTopDocuments_s(const string& query, DocumentStatus status) const
-{
-    vector<Document> all_documents;
-    all_documents = FindAllDocuments(query);
-
-    sort(all_documents.begin(), all_documents.end(), [](Document x, Document y) {return x.relevance > y.relevance; });
-    vector<Document> top_documents(all_documents.begin(), all_documents.begin() + (MAX_RESULT_DOCUMENT_COUNT <= all_documents.size() ? MAX_RESULT_DOCUMENT_COUNT : all_documents.size()));
-    vector<Document> filteredTopDocuments;
-    copy_if(top_documents.begin(), top_documents.end(), back_inserter(filteredTopDocuments), [status](Document x) {return x.status == status; });
-    return filteredTopDocuments;
 }
 
 vector<Document> SearchServer::FindTopDocuments(const pair <string, vector<string>> query) const
