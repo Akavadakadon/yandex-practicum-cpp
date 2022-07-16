@@ -148,12 +148,12 @@ vector<Document> SearchServer::FindAllDocuments(const string& query, vector<stri
     for (auto [document_id, relevance] : document_to_relevance) {
         if (find(failed.begin(), failed.end(), document_id) == failed.end())
             ;
-            found_documents.push_back({
-            .document_id = document_id,
-            .relevance = relevance,
-            .rating=ratings.size()!=0? ratings.at(document_id):NULL ,
-            .status = statuses.size() != 0 ? statuses.at(document_id) : DocumentStatus::NOSTATUS
-                });
+        found_documents.push_back({
+        .document_id = document_id,
+        .relevance = relevance,
+        .rating = ratings.size() != 0 ? ratings.at(document_id) : NULL ,
+        .status = statuses.size() != 0 ? statuses.at(document_id) : DocumentStatus::NOSTATUS
+            });
     }
     return found_documents;
 }
