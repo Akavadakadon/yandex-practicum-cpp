@@ -11,25 +11,17 @@
 using namespace std;
 
 
-<<<<<<< HEAD
 enum DocumentStatus
 {
     ACTUAL, IRRELEVANT, BANNED, REMOVED, NOSTATUS
 };
-
-=======
->>>>>>> 5b2989887d891673d7231b7eca7f0d431ade1134
 #ifndef Document
 struct Document
 {
     int document_id;
     double relevance;
     double rating;
-<<<<<<< HEAD
     DocumentStatus status;
-=======
-    SearchServer::DocumentStatus status;
->>>>>>> 5b2989887d891673d7231b7eca7f0d431ade1134
 };
 #endif
 
@@ -39,14 +31,6 @@ struct Document
 
 class SearchServer {
 public:
-<<<<<<< HEAD
-=======
-    enum DocumentStatus
-    {
-        ACTUAL, IRRELEVANT, BANNED, REMOVED, NOSTATUS
-    };
->>>>>>> 5b2989887d891673d7231b7eca7f0d431ade1134
-
 private:
     map<string, set<int>> word_to_documents_;
     set<string> stop_words_;

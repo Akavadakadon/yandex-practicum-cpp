@@ -77,6 +77,8 @@
     <ClInclude Include="NumericTypes07.h">
       <Filter>sprint 1\Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
+<<<<<<< HEAD
     <ClInclude Include="PairsAndCorteges08.h">
       <Filter>sprint 1\Header Files</Filter>
     </ClInclude>
