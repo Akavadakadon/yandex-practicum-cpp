@@ -56,7 +56,7 @@ void FinTask()
     }
     pair <string, vector<string>> queryO = { query.substr(0, query.find('-')),stops };
 
-    for (auto [document_id, relevance] : ss.FindTopDocuments(queryO)) {
+    for (auto [document_id, relevance, status, rating] : ss.FindTopDocuments(queryO)) {
         cout << "{ document_id = "s << document_id << ", relevance = "s << relevance << " }"s << endl;
     }
 }
