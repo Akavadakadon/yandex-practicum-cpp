@@ -37,6 +37,10 @@ int SearchServer::GetStopWordsSize()
 {
     return stop_words_.size();
 }
+int SearchServer::GetDocumentCount()
+{
+    return docs_counter;
+}
 
 vector<string> SearchServer::SplitIntoWordsNoStop(const string& text) const
 {
@@ -108,6 +112,22 @@ SearchServer SearchServer::CreateSearchServer()
     return search_server;
 }
 
+tuple<vector<string>, DocumentStatus> SearchServer::MatchDocument(const string& raw_query, int document_id) const
+{
+    const vector<string> query_words = SplitIntoWordsNoStop(raw_query);
+    vector<string> asd;
+    for (auto word : query_words)
+    {
+        auto a = word_to_documents_.at(word).count(document_id);
+        auto asd1 = word_to_documents_.at(word);
+        if (word_to_documents_.at(word).count(document_id) <= 0)
+            continue;
+        else
+            asd.push_back(word);
+    }
+    return tuple(asd, statuses.at(document_id));
+}
+
 vector<Document> SearchServer::FindAllDocuments(const string& query, vector<string> stopWords) const
 {
     const vector<string> query_words = SplitIntoWordsNoStop(query);
@@ -163,7 +183,14 @@ vector<Document> SearchServer::FindTopDocuments(const string& query) const
     vector<Document> all_documents;
     all_documents = FindAllDocuments(query);
 
-    sort(all_documents.begin(), all_documents.end(), [](Document x, Document y) {return x.relevance > y.relevance; });
+    sort(all_documents.begin(), all_documents.end(), [](Document x, Document y) {
+        //return x.relevance > y.relevance; 
+        double diff = abs(x.relevance - y.relevance);
+        double EPSILON = 1e-6;
+        if (diff < EPSILON)
+            return x.rating > y.rating;
+        return x.relevance > y.relevance;
+        });
     vector<Document> top_documents(all_documents.begin(), all_documents.begin() + (MAX_RESULT_DOCUMENT_COUNT <= all_documents.size() ? MAX_RESULT_DOCUMENT_COUNT : all_documents.size()));
     return top_documents;
 }

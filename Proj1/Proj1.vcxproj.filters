@@ -48,6 +48,9 @@
     <ClCompile Include="task2_relevantDocs.cpp">
       <Filter>sprint 1\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TaskTracker.cpp">
+      <Filter>sprint 1\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="task3.h">
@@ -78,6 +81,9 @@
       <Filter>sprint 1\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PairsAndCorteges08.h">
+      <Filter>sprint 1\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskTracker.h">
       <Filter>sprint 1\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

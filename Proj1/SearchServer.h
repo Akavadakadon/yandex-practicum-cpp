@@ -11,6 +11,7 @@
 using namespace std;
 
 
+
 enum DocumentStatus
 {
     ACTUAL, IRRELEVANT, BANNED, REMOVED, NOSTATUS
@@ -49,6 +50,7 @@ public:
     // Должна быть конструктором
     SearchServer CreateSearchServer();
 
+    int GetDocumentCount();
     int GetStopWordsSize();
     void AddDocument(int document_id, const string& document);
     void AddDocument(int document_id, const string& document, vector<int> ratings);
@@ -58,5 +60,6 @@ public:
     vector<Document> FindTopDocuments(const string& query) const;
     vector<Document> FindTopDocuments_s(const string& query, DocumentStatus status = DocumentStatus::ACTUAL) const;
     vector<Document> FindTopDocuments(const pair <string, vector<string>> query) const;
+    tuple<vector<string>, DocumentStatus> MatchDocument(const string& raw_query, int document_id) const;
 };
 

@@ -148,6 +148,7 @@
     <ClCompile Include="task1_relevantDocs.cpp" />
     <ClCompile Include="task2_relevantDocs.cpp" />
     <ClCompile Include="task3.cpp" />
+    <ClCompile Include="TaskTracker.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FinTask.h" />
@@ -160,6 +161,7 @@
     <ClInclude Include="task1_relevantDocs.h" />
     <ClInclude Include="task2_relevantDocs.h" />
     <ClInclude Include="task3.h" />
+    <ClInclude Include="TaskTracker.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
