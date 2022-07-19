@@ -116,6 +116,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,6 +141,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Buses.cpp" />
+    <ClCompile Include="SearchServer.cpp" />
     <ClCompile Include="Soure.cpp" />
     <ClCompile Include="sprint2.cpp" />
     <ClCompile Include="Synonyms.cpp" />
@@ -148,6 +150,7 @@
   <ItemGroup>
     <ClInclude Include="Buses.h" />
     <ClInclude Include="ReadFromConsole.h" />
+    <ClInclude Include="SearchServer.h" />
     <ClInclude Include="sprint2.h" />
     <ClInclude Include="Synonyms.h" />
     <ClInclude Include="Testing.h" />

@@ -39,6 +39,9 @@
     <ClCompile Include="Buses.cpp">
       <Filter>sprint2\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SearchServer.cpp">
+      <Filter>sprint2\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sprint2.h">
@@ -54,6 +57,9 @@
       <Filter>sprint2\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Buses.h">
+      <Filter>sprint2\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchServer.h">
       <Filter>sprint2\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
