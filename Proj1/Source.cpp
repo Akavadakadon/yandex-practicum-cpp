@@ -2,7 +2,7 @@
 //
 
 #include <iostream>
-#include "Sprint1.h"
+#include "sprint1/Sprint1.h"
 
 int main()
 {
