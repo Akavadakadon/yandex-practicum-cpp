@@ -140,23 +140,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Buses.cpp" />
-    <ClCompile Include="FrameworkForTesting.cpp" />
-    <ClCompile Include="SearchServer.cpp" />
-    <ClCompile Include="Soure.cpp" />
-    <ClCompile Include="sprint2.cpp" />
-    <ClCompile Include="Synonyms.cpp" />
-    <ClCompile Include="Testing.cpp" />
+    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="sprint2\Buses.cpp" />
+    <ClCompile Include="sprint2\FrameworkForTesting.cpp" />
+    <ClCompile Include="sprint2\SearchServer.cpp" />
+    <ClCompile Include="sprint2\sprint2.cpp" />
+    <ClCompile Include="sprint2\Synonyms.cpp" />
+    <ClCompile Include="sprint2\Testing.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Buses.h" />
-    <ClInclude Include="FrameworkForTesting.h" />
-    <ClInclude Include="ReadFromConsole.h" />
-    <ClInclude Include="SearchServer.h" />
-    <ClInclude Include="sprint2.h" />
-    <ClInclude Include="SSTesting.h" />
-    <ClInclude Include="Synonyms.h" />
-    <ClInclude Include="Testing.h" />
+    <ClInclude Include="sprint2\Buses.h" />
+    <ClInclude Include="sprint2\FrameworkForTesting.h" />
+    <ClInclude Include="sprint2\ReadFromConsole.h" />
+    <ClInclude Include="sprint2\SearchServer.h" />
+    <ClInclude Include="sprint2\SearchServerTest.h" />
+    <ClInclude Include="sprint2\sprint2.h" />
+    <ClInclude Include="sprint2\SSTesting.h" />
+    <ClInclude Include="sprint2\Synonyms.h" />
+    <ClInclude Include="sprint2\Testing.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
