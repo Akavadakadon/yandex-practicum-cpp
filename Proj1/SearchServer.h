@@ -19,7 +19,7 @@ enum DocumentStatus
 #ifndef Document
 struct Document
 {
-    int document_id;
+    int document_id = -1;
     double relevance;
     double rating;
     DocumentStatus status;

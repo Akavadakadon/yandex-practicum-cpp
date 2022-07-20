@@ -22,6 +22,15 @@
     <Filter Include="sprint2\Source Files">
       <UniqueIdentifier>{cb01d260-16e2-46be-be4e-e1fc18219889}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sprint2\part2">
+      <UniqueIdentifier>{a8b50cf8-74b8-44d0-a1c3-583ab9d8714b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sprint2\part2\Header Files">
+      <UniqueIdentifier>{73060f3d-7edc-4fe1-8df8-99de71042aa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sprint2\part2\Source Files">
+      <UniqueIdentifier>{ba645b94-0174-45b1-8f2c-90dda8c25ec3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Soure.cpp">
@@ -42,6 +51,9 @@
     <ClCompile Include="SearchServer.cpp">
       <Filter>sprint2\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FrameworkForTesting.cpp">
+      <Filter>sprint2\part2\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sprint2.h">
@@ -61,6 +73,12 @@
     </ClInclude>
     <ClInclude Include="SearchServer.h">
       <Filter>sprint2\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameworkForTesting.h">
+      <Filter>sprint2\part2\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SSTesting.h">
+      <Filter>sprint2\part2\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

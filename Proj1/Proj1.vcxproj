@@ -141,6 +141,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Buses.cpp" />
+    <ClCompile Include="FrameworkForTesting.cpp" />
     <ClCompile Include="SearchServer.cpp" />
     <ClCompile Include="Soure.cpp" />
     <ClCompile Include="sprint2.cpp" />
@@ -149,9 +150,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Buses.h" />
+    <ClInclude Include="FrameworkForTesting.h" />
     <ClInclude Include="ReadFromConsole.h" />
     <ClInclude Include="SearchServer.h" />
     <ClInclude Include="sprint2.h" />
+    <ClInclude Include="SSTesting.h" />
     <ClInclude Include="Synonyms.h" />
     <ClInclude Include="Testing.h" />
   </ItemGroup>

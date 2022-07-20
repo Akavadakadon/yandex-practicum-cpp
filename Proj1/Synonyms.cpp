@@ -11,30 +11,25 @@
 
 using namespace std;
 
-class Synonyms {
-public:
-    void Add(const string& first_word, const string& second_word) {
-        synonyms_[first_word].insert(second_word);
-        synonyms_[second_word].insert(first_word);
-    }
 
-    size_t GetSynonymCount(const string& word) const {
-        if (synonyms_.count(word) != 0) {
-            return synonyms_.at(word).size();
-        }
-        return 0;
-    }
+void Synonyms::Add(const string& first_word, const string& second_word) {
+	synonyms_[first_word].insert(second_word);
+	synonyms_[second_word].insert(first_word);
+}
 
-    bool AreSynonyms(const string& first_word, const string& second_word) const {
-        if (synonyms_.count(first_word) != 0) {
-            return synonyms_.at(first_word).count(second_word);
-        }
-        return false;
-    }
+size_t Synonyms::GetSynonymCount(const string& word) const {
+	if (synonyms_.count(word) != 0) {
+		return synonyms_.at(word).size();
+	}
+	return 0;
+}
 
-private:
-    map<string, set<string>> synonyms_;
-};
+bool Synonyms::AreSynonyms(const string& first_word, const string& second_word) const {
+	if (synonyms_.count(first_word) != 0) {
+		return synonyms_.at(first_word).count(second_word);
+	}
+	return false;
+}
 
 void TestAddingSynonymsIncreasesTheirCount() {
     Synonyms synonyms;
@@ -62,7 +57,6 @@ void TestAreSynonyms() {
     assert(synonyms.AreSynonyms("music"s, "tune"s) == 1);
     assert(synonyms.AreSynonyms("tune"s, "melody"s) == 0);
     assert(synonyms.AreSynonyms("melody"s, "tune"s) == 0);
-    // Напишите недостающий код
 }
 
 void TestSynonyms() {
