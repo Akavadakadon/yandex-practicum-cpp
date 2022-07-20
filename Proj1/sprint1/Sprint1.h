@@ -8,10 +8,10 @@
 
 void Sprint1()
 {
-	//task1();
-	//Proj2();
-	//Task3();
-	//FinTask();
-	//NumericTypes07();
+	task1();
+	Proj2();
+	Task3();
+	FinTask();
+	NumericTypes07();
 	PairsAndCorteges08();
 }

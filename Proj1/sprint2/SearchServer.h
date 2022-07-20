@@ -13,9 +13,7 @@
 #define MAX_RESULT_DOCUMENT_COUNT 5
 #endif
 
-namespace sprint2 {
-
-    using namespace std;
+using namespace std;
     enum DocumentStatus
     {
         ACTUAL, IRRELEVANT, BANNED, REMOVED, NOSTATUS
@@ -62,4 +60,3 @@ namespace sprint2 {
         tuple<vector<string>, DocumentStatus> MatchDocument(const string& raw_query, int document_id) const;
         tuple<vector<string>, DocumentStatus> MatchDocument(const pair <string, vector<string>> query, int document_id) const;
     };
-}

@@ -4,10 +4,9 @@
 #include "ReadFromConsole.h"
 #include "Synonyms.h"
 #include "Buses.h"
-#include "SearchServer.h"
+#include "../sprint2/SearchServer.h"
 
 	using namespace std;
-	using namespace sprint2;
 
 	vector<string> SplitIntoWords(const string& text)
 	{

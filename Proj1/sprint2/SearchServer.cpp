@@ -1,6 +1,5 @@
-#include "SearchServer.h"
+#include "../sprint2/SearchServer.h"
 
-using namespace sprint2;
 
     void SearchServer::AddDocument(int document_id, const string& document)
     {

@@ -1,9 +1,8 @@
 #include <iostream>
 #include "task2_relevantDocs.h"
-#include "SearchServer.h"
+#include "../sprint2/SearchServer.h"
 
 using namespace std;
-using namespace sprint1;
 
 void task5()
 {

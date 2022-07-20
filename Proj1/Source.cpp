@@ -2,9 +2,12 @@
 //
 
 #include <iostream>
+#include "sprint2/sprint2.h"
+#include "sprint1/sprint1.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Sprint1();
+    Sprint2();
 }
 

@@ -1,7 +1,8 @@
 #pragma once
 
 #include <sstream>
-using namespace sprint1;
+#include "../sprint2/SearchServer.h"
+
 
 void Rating1()
 {

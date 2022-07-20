@@ -1,5 +1,5 @@
 #pragma once
-#include "SearchServer.h"
+#include "../sprint2/SearchServer.h"
 #include "FrameworkForTesting.h"
 
 #include <iostream>
@@ -14,7 +14,6 @@
 
 namespace TestingSearchServerFramework {
 	using namespace std;
-	using namespace sprint2;
 
 //
 //	vector<string> SplitIntoWords(const string& text)
