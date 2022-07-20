@@ -2,9 +2,11 @@
 //
 
 #include <iostream>
+#include "sprint3.h"
 
 int main()
 {
     std::cout << "Hello World!\n";
+    Sprint3();
 }
 

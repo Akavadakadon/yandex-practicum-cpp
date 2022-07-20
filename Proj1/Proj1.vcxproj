@@ -140,43 +140,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Rational.cpp" />
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="sprint1\FinTask.cpp" />
-    <ClCompile Include="sprint1\Proj2.cpp" />
-    <ClCompile Include="sprint1\SearchServer.cpp" />
-    <ClCompile Include="sprint1\task1.cpp" />
-    <ClCompile Include="sprint1\task1_relevantDocs.cpp" />
-    <ClCompile Include="sprint1\task2_relevantDocs.cpp" />
-    <ClCompile Include="sprint1\task3.cpp" />
-    <ClCompile Include="sprint1\TaskTracker.cpp" />
-    <ClCompile Include="sprint2\Buses.cpp" />
-    <ClCompile Include="sprint2\FrameworkForTesting.cpp" />
-    <ClCompile Include="sprint2\SearchServer.cpp" />
-    <ClCompile Include="sprint2\sprint2.cpp" />
-    <ClCompile Include="sprint2\Synonyms.cpp" />
-    <ClCompile Include="sprint2\Testing.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Sprint1.h" />
-    <ClInclude Include="sprint1\FinTask.h" />
-    <ClInclude Include="sprint1\NumericTypes07.h" />
-    <ClInclude Include="sprint1\PairsAndCorteges08.h" />
-    <ClInclude Include="sprint1\Proj2.h" />
-    <ClInclude Include="sprint1\SearchServer.h" />
-    <ClInclude Include="sprint1\Sprint1.h" />
-    <ClInclude Include="sprint1\task1.h" />
-    <ClInclude Include="sprint1\task1_relevantDocs.h" />
-    <ClInclude Include="sprint1\task2_relevantDocs.h" />
-    <ClInclude Include="sprint1\task3.h" />
-    <ClInclude Include="sprint1\TaskTracker.h" />
-    <ClInclude Include="sprint2\Buses.h" />
-    <ClInclude Include="sprint2\FrameworkForTesting.h" />
-    <ClInclude Include="sprint2\ReadFromConsole.h" />
-    <ClInclude Include="sprint2\SearchServer.h" />
-    <ClInclude Include="sprint2\sprint2.h" />
-    <ClInclude Include="sprint2\SSTesting.h" />
-    <ClInclude Include="sprint2\Synonyms.h" />
-    <ClInclude Include="sprint2\Testing.h" />
+    <ClInclude Include="Animal.h" />
+    <ClInclude Include="ObjectLifeCycle.h" />
+    <ClInclude Include="Rational.h" />
+    <ClInclude Include="sprint3.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
