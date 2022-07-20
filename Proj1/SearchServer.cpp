@@ -115,17 +115,44 @@ SearchServer SearchServer::CreateSearchServer()
 tuple<vector<string>, DocumentStatus> SearchServer::MatchDocument(const string& raw_query, int document_id) const
 {
     const vector<string> query_words = SplitIntoWordsNoStop(raw_query);
-    vector<string> asd;
+    vector<string> matchingWords;
     for (auto word : query_words)
     {
         auto a = word_to_documents_.at(word).count(document_id);
-        auto asd1 = word_to_documents_.at(word);
         if (word_to_documents_.at(word).count(document_id) <= 0)
             continue;
         else
-            asd.push_back(word);
+            matchingWords.push_back(word);
     }
-    return tuple(asd, statuses.at(document_id));
+    return tuple(matchingWords, statuses.at(document_id));
+}
+
+tuple<vector<string>, DocumentStatus> SearchServer::MatchDocument(const pair <string, vector<string>> query, int document_id) const
+{
+    const vector<string> query_words = SplitIntoWordsNoStop(query.first);
+    vector<string> matchingWords;
+
+    set<int> minusDocks;
+    for (auto word : query.second)
+    {
+        if (word_to_documents_.find(word) == word_to_documents_.end())
+            continue;
+        if (word_to_documents_.at(word).find(document_id) != word_to_documents_.at(word).end())
+            return tuple(vector<string>(), DocumentStatus::NOSTATUS);
+    }
+
+    for (auto word : query_words)
+    {
+        if (word_to_documents_.find(word) == word_to_documents_.end())
+            continue;
+        auto a = word_to_documents_.at(word).count(document_id);
+        if (word_to_documents_.at(word).count(document_id) <= 0)
+            continue;
+        else
+            matchingWords.push_back(word);
+    }
+    DocumentStatus status = statuses.find(document_id) == statuses.end() ? DocumentStatus::NOSTATUS : statuses.at(document_id);
+    return tuple(matchingWords, status);
 }
 
 vector<Document> SearchServer::FindAllDocuments(const string& query, vector<string> stopWords) const
@@ -138,7 +165,7 @@ vector<Document> SearchServer::FindAllDocuments(const string& query, vector<stri
             continue;
         }
         int count = word_to_documents_.find(word)->second.size();
-        IDF[word]=(log((double)docs_counter / count));
+        IDF[word] = (log((double)docs_counter / count));
     }
 
     for (auto doc : word_to_documents_)
@@ -166,14 +193,14 @@ vector<Document> SearchServer::FindAllDocuments(const string& query, vector<stri
 
     vector<Document> found_documents;
     for (auto [document_id, relevance] : document_to_relevance) {
-        if (find(failed.begin(), failed.end(), document_id) == failed.end())
-            ;
-            found_documents.push_back({
-            .document_id = document_id,
-            .relevance = relevance,
-            .rating=ratings.size()!=0? ratings.at(document_id):NULL ,
-            .status = statuses.size() != 0 ? statuses.at(document_id) : DocumentStatus::NOSTATUS
-                });
+        if (find(failed.begin(), failed.end(), document_id) != failed.end())
+            continue;
+        found_documents.push_back({
+        .document_id = document_id,
+        .relevance = relevance,
+        .rating = ratings.size() != 0 ? ratings.at(document_id) : NULL ,
+        .status = statuses.size() != 0 ? statuses.at(document_id) : DocumentStatus::NOSTATUS
+            });
     }
     return found_documents;
 }
@@ -201,10 +228,11 @@ vector<Document> SearchServer::FindTopDocuments_s(const string& query, DocumentS
     all_documents = FindAllDocuments(query);
 
     sort(all_documents.begin(), all_documents.end(), [](Document x, Document y) {return x.relevance > y.relevance; });
-    vector<Document> top_documents(all_documents.begin(), all_documents.begin() + (MAX_RESULT_DOCUMENT_COUNT <= all_documents.size() ? MAX_RESULT_DOCUMENT_COUNT : all_documents.size()));
     vector<Document> filteredTopDocuments;
-    copy_if(top_documents.begin(), top_documents.end(), back_inserter(filteredTopDocuments), [status](Document x) {return x.status == status; });
-    return filteredTopDocuments;
+    copy_if(all_documents.begin(), all_documents.end(), back_inserter(filteredTopDocuments), [status](Document x) {return x.status == status; });
+    auto asd = MAX_RESULT_DOCUMENT_COUNT <= filteredTopDocuments.size() ? MAX_RESULT_DOCUMENT_COUNT : filteredTopDocuments.size();
+    vector<Document> top_documents(filteredTopDocuments.begin(), filteredTopDocuments.begin() + (MAX_RESULT_DOCUMENT_COUNT <= filteredTopDocuments.size() ? MAX_RESULT_DOCUMENT_COUNT : filteredTopDocuments.size()));
+    return top_documents;
 }
 
 vector<Document> SearchServer::FindTopDocuments(const pair <string, vector<string>> query) const
@@ -239,4 +267,3 @@ SearchServer::SearchServer(int)
 {
 
 }
-

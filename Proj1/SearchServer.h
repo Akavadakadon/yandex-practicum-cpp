@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include <map>
 #include <set>
@@ -19,7 +19,7 @@ enum DocumentStatus
 #ifndef Document
 struct Document
 {
-    int document_id;
+    int document_id = -1;
     double relevance;
     double rating;
     DocumentStatus status;
@@ -47,7 +47,6 @@ private:
 public:
     SearchServer(int);
     SearchServer();
-    // Должна быть конструктором
     SearchServer CreateSearchServer();
 
     int GetDocumentCount();
@@ -61,5 +60,5 @@ public:
     vector<Document> FindTopDocuments_s(const string& query, DocumentStatus status = DocumentStatus::ACTUAL) const;
     vector<Document> FindTopDocuments(const pair <string, vector<string>> query) const;
     tuple<vector<string>, DocumentStatus> MatchDocument(const string& raw_query, int document_id) const;
+    tuple<vector<string>, DocumentStatus> MatchDocument(const pair <string, vector<string>> query, int document_id) const;
 };
-
