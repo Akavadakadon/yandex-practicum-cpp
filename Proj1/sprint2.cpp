@@ -7,6 +7,6 @@
 void Sprint2()
 {
 	setlocale(LC_ALL, "Russian");
-	//Testing();
+	Testing();
 	FrameworkForTesting();
 }

@@ -196,11 +196,6 @@ void TestSynonymsFrameworkRUN_TEST()
     RUN_TEST(TestAreSynonymsFramework);
 }
 
-void SearchServerTestFrameWork()
-{
-
-}
-
 void FrameworkForTesting()
 {
     cout << "\n\n FrameworkForTesting \n\n";

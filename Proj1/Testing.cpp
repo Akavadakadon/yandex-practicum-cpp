@@ -175,6 +175,35 @@ void TestIfMinusWordsIncluded()
 	assert(counter == 0);
 }
 
+bool TestAddDocument()
+{
+	{
+		SearchServer ss(1);
+		string doc = "asd 123 lod nuf asd";
+		int doc_id = 1123;
+		ss.AddDocument(doc_id, doc);
+		auto res = ss.FindTopDocuments(doc);
+		assert(find_if(res.begin(), res.end(), [doc_id](Document x) {return doc_id == x.document_id; }) != res.end());
+	}
+	{
+		SearchServer ss(1);
+		string doc = "";
+		int doc_id = 1123;
+		ss.AddDocument(doc_id, doc);
+		auto res = ss.FindTopDocuments(doc);
+		assert(find_if(res.begin(), res.end(), [doc_id](Document x) {return doc_id == x.document_id; }) != res.end());
+	}
+	{
+		SearchServer ss(1);
+		string doc;
+		int doc_id = 1123;
+		ss.AddDocument(doc_id, doc);
+		auto res = ss.FindTopDocuments(doc);
+		assert(find_if(res.begin(), res.end(), [doc_id](Document x) {return doc_id == x.document_id; }) != res.end());
+	}
+	return true;
+}
+
 void TestMatch()
 {
 	SearchServer server;
@@ -233,26 +262,119 @@ void TestMatch()
 	}
 }
 
+bool TestStopWords()
+{
+	SearchServer ss(1);
+
+	string stop_words_joined("белый кот"); //readFromConsole::ReadLine();
+	vector<string> docs = { "белый кот и модный ошейник",
+"пушистый кот пушистый хвост",
+"пушистый ухоженный пЄс выразительные глаза" };
+	string query = "кот";
+
+	const int document_count = docs.size();
+	vector<string>::iterator iter = docs.begin();
+	ss.SetStopWords(stop_words_joined);
+	for (int document_id = 0; document_id < document_count; ++document_id, iter++) {
+		ss.AddDocument(document_id, *iter);
+	}
+
+	vector<Document> res = ss.FindTopDocuments(query);
+	assert(res.size() == 0);
+
+	query = "пушистый кот";
+	res = ss.FindTopDocuments(query);
+	int idOfFoundDoc = 1;
+	assert(find_if(res.begin(), res.end(), [idOfFoundDoc](Document x) {return idOfFoundDoc == x.document_id; }) != res.end());
+	idOfFoundDoc = 2;
+	assert(find_if(res.begin(), res.end(), [idOfFoundDoc](Document x) {return idOfFoundDoc == x.document_id; }) != res.end());
+
+	return true;
+}
+
+bool TestSortingRelevance()
+{
+	SearchServer ss(1);
+
+	string stop_words_joined("и в на"); //readFromConsole::ReadLine();
+	vector<string> docs = { "белый кот и модный ошейник",
+"пушистый кот пушистый хвост",
+"ухоженный пЄс выразительные глаза" };
+	string query = "пушистый ухоженный кот";
+
+	const int document_count = docs.size();
+	vector<string>::iterator iter = docs.begin();
+	ss.SetStopWords(stop_words_joined);
+	for (int document_id = 0; document_id < document_count; ++document_id, iter++) {
+		ss.AddDocument(document_id, *iter);
+	}
+
+	vector<Document> res = ss.FindTopDocuments(query);
+	Document prev;
+	for (int i = 0; i < res.size(); i++)
+	{
+		if (prev.document_id == -1)
+			prev = res[i];
+		else
+			assert(prev.relevance >= res[i].relevance);
+	}
+
+	return true;
+}
+
+bool TestUserPredicate()
+{
+	SearchServer ss(1);
+
+	string stop_words_joined("белый кот"); //readFromConsole::ReadLine();
+	vector<string> docs = { "пушистый белый кот и модный ошейник",
+"пушистый кот пушистый хвост",
+"пушистый ухоженный пЄс выразительные глаза" };
+	string query = "пушистый";
+	vector<DocumentStatus> statuses({ DocumentStatus::ACTUAL,DocumentStatus::REMOVED, DocumentStatus::IRRELEVANT });
+
+	const int document_count = docs.size();
+	vector<string>::iterator iter = docs.begin();
+	ss.SetStopWords(stop_words_joined);
+	for (int document_id = 0; document_id < document_count; ++document_id, iter++) {
+		ss.AddDocument(document_id, *iter, statuses[document_id], { 1,2,3 });
+	}
+
+	vector<Document> res = ss.FindTopDocuments_s(query);
+	int idOfFoundDoc = 0;
+	assert(find_if(res.begin(), res.end(), [idOfFoundDoc](Document x) {return idOfFoundDoc == x.document_id; }) != res.end());
+	res = ss.FindTopDocuments_s(query, DocumentStatus::REMOVED);
+	idOfFoundDoc = 1;
+	assert(find_if(res.begin(), res.end(), [idOfFoundDoc](Document x) {return idOfFoundDoc == x.document_id; }) != res.end());
+	res = ss.FindTopDocuments_s(query, DocumentStatus::IRRELEVANT);
+	idOfFoundDoc = 2;
+	assert(find_if(res.begin(), res.end(), [idOfFoundDoc](Document x) {return idOfFoundDoc == x.document_id; }) != res.end());
+	res = ss.FindTopDocuments_s(query, DocumentStatus::NOSTATUS);
+	assert(res.size() == 0);
+	return true;
+}
+
 void SearchServerTest()
 {
 	TestExcludeStopWordsFromAddedDocumentContent();
 	//	ƒобавление документов.ƒобавленный документ должен находитьс€ по поисковому запросу, который содержит слова из документа.
-	
+	TestAddDocument();
 	//	ѕоддержка стоп - слов.—топ - слова исключаютс€ из текста документов.
-	
+	TestStopWords();
 	//	ѕоддержка минус - слов.ƒокументы, содержащие минус - слова поискового запроса, не должны включатьс€ в результаты поиска.
 	TestIfMinusWordsIncluded();
 	//	ћатчинг документов.ѕри матчинге документа по поисковому запросу должны быть возвращены все слова из поискового запроса, присутствующие в документе.≈сли есть соответствие хот€ бы по одному минус - слову, должен возвращатьс€ пустой список слов.
 	TestMatch();
 	//	—ортировка найденных документов по релевантности.¬озвращаемые при поиске документов результаты должны быть отсортированы в пор€дке убывани€ релевантности.
-	TestComputingRelevance();
+	TestSortingRelevance();
 	//	¬ычисление рейтинга документов.–ейтинг добавленного документа равен среднему арифметическому оценок документа.
 	TestComputingRating();
 	//	‘ильтраци€ результатов поиска с использованием предиката, задаваемого пользователем.
-	 
+	TestUserPredicate();
 	//	ѕоиск документов, имеющих заданный статус.
 	TestFindAllDocumentsWithCertainStatus();
 	//	 орректное вычисление релевантности найденных документов
+	TestComputingRelevance();
 }
 
 
