@@ -140,23 +140,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Buses.cpp" />
-    <ClCompile Include="FrameworkForTesting.cpp" />
+    <ClCompile Include="FinTask.cpp" />
+    <ClCompile Include="Proj2.cpp" />
     <ClCompile Include="SearchServer.cpp" />
-    <ClCompile Include="Soure.cpp" />
-    <ClCompile Include="sprint2.cpp" />
-    <ClCompile Include="Synonyms.cpp" />
-    <ClCompile Include="Testing.cpp" />
+    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="task1.cpp" />
+    <ClCompile Include="task1_relevantDocs.cpp" />
+    <ClCompile Include="task2_relevantDocs.cpp" />
+    <ClCompile Include="task3.cpp" />
+    <ClCompile Include="TaskTracker.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Buses.h" />
-    <ClInclude Include="FrameworkForTesting.h" />
-    <ClInclude Include="ReadFromConsole.h" />
+    <ClInclude Include="FinTask.h" />
+    <ClInclude Include="NumericTypes07.h" />
+    <ClInclude Include="PairsAndCorteges08.h" />
+    <ClInclude Include="Proj2.h" />
     <ClInclude Include="SearchServer.h" />
-    <ClInclude Include="sprint2.h" />
-    <ClInclude Include="SSTesting.h" />
-    <ClInclude Include="Synonyms.h" />
-    <ClInclude Include="Testing.h" />
+    <ClInclude Include="Sprint1.h" />
+    <ClInclude Include="task1.h" />
+    <ClInclude Include="task1_relevantDocs.h" />
+    <ClInclude Include="task2_relevantDocs.h" />
+    <ClInclude Include="task3.h" />
+    <ClInclude Include="TaskTracker.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
