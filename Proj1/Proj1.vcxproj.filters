@@ -132,9 +132,6 @@
     <ClInclude Include="sprint2\sprint2.h">
       <Filter>sprint2\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sprint2\SearchServerTest.h">
-      <Filter>sprint2\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="sprint2\SearchServer.h">
       <Filter>sprint2\Header Files</Filter>
     </ClInclude>

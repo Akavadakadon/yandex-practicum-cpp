@@ -1,5 +1,6 @@
 #include "FinTask.h"
 
+using namespace std;
 namespace readFromConsole
 {
 
@@ -17,6 +18,7 @@ namespace readFromConsole
     }
 }
 
+using namespace sprint1;
 void FinTask()
 {
     SearchServer ss(1);

@@ -6,16 +6,17 @@
 #include <vector>
 #include <set>
 #include <map>
+
 using namespace std;
 
 void FrameworkForTesting();
 
 void AssertImpl(bool value, const string& expr_str, const string& file, const string& func, unsigned line,
-    const string& hint);
+	const string& hint);
 
 template <typename T, typename U>
 void AssertEqualImpl(const T& t, const U& u, const string& t_str, const string& u_str, const string& file,
-    const string& func, unsigned line, const string& hint);
+	const string& func, unsigned line, const string& hint);
 
 template <typename TestFunction>
 void RunTestImpl(TestFunction test, string testName, string fileName, string funcName, unsigned lineNum);

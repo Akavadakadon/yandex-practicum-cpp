@@ -3,6 +3,7 @@
 #include "SearchServer.h"
 
 using namespace std;
+using namespace sprint1;
 
 void task5()
 {

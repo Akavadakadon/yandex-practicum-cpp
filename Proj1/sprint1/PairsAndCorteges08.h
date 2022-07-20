@@ -119,6 +119,7 @@ namespace TuplesInComparisonNamespace
 
 namespace ReturnMultipleValues
 {
+    using namespace sprint1;
     void PrintMatchDocumentResult(int document_id, const vector<string>& words, DocumentStatus status) {
         cout << "{ "s
             << "document_id = "s << document_id << ", "s

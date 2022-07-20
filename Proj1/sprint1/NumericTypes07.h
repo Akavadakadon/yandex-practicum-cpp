@@ -1,6 +1,7 @@
 #pragma once
 
 #include <sstream>
+using namespace sprint1;
 
 void Rating1()
 {

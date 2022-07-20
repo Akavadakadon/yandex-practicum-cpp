@@ -1,4 +1,5 @@
 #include "SearchServer.h"
+using namespace sprint1;
 
 void SearchServer::AddDocument(int document_id, const string& document)
 {
