@@ -10,7 +10,6 @@
 #include <algorithm>
 #include <execution>
 #include <cmath>
-//#include <cassert>
 
 namespace TestingSearchServerFramework {
 	using namespace std;

@@ -149,6 +149,12 @@
     <ClCompile Include="sprint1\task2_relevantDocs.cpp" />
     <ClCompile Include="sprint1\task3.cpp" />
     <ClCompile Include="sprint1\TaskTracker.cpp" />
+    <ClCompile Include="sprint2\Buses.cpp" />
+    <ClCompile Include="sprint2\FrameworkForTesting.cpp" />
+    <ClCompile Include="sprint2\SearchServer.cpp" />
+    <ClCompile Include="sprint2\sprint2.cpp" />
+    <ClCompile Include="sprint2\Synonyms.cpp" />
+    <ClCompile Include="sprint2\Testing.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sprint1.h" />
@@ -163,6 +169,15 @@
     <ClInclude Include="sprint1\task2_relevantDocs.h" />
     <ClInclude Include="sprint1\task3.h" />
     <ClInclude Include="sprint1\TaskTracker.h" />
+	<ClInclude Include="sprint2\Buses.h" />
+    <ClInclude Include="sprint2\FrameworkForTesting.h" />
+    <ClInclude Include="sprint2\ReadFromConsole.h" />
+    <ClInclude Include="sprint2\SearchServer.h" />
+    <ClInclude Include="sprint2\SearchServerTest.h" />
+    <ClInclude Include="sprint2\sprint2.h" />
+    <ClInclude Include="sprint2\SSTesting.h" />
+    <ClInclude Include="sprint2\Synonyms.h" />
+    <ClInclude Include="sprint2\Testing.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

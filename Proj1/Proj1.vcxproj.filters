@@ -22,6 +22,15 @@
     <Filter Include="sprint1\Source Files">
       <UniqueIdentifier>{03360682-470a-4ccb-a6df-b4855d1af2bd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sprint2">
+      <UniqueIdentifier>{e2e0a7c1-1d53-49b1-8e60-be60f4121831}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sprint2\Source Files">
+      <UniqueIdentifier>{5576a7c7-f0b7-4110-9888-821bd62c1408}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sprint2\Header Files">
+      <UniqueIdentifier>{0fb65d19-9fa2-4a17-86d2-8898199ca9a5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -50,6 +59,26 @@
     </ClCompile>
     <ClCompile Include="sprint1\task1.cpp">
       <Filter>sprint1\Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sprint2\Buses.cpp">
+      <Filter>sprint2\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sprint2\FrameworkForTesting.cpp">
+      <Filter>sprint2\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sprint2\SearchServer.cpp">
+      <Filter>sprint2\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sprint2\sprint2.cpp">
+      <Filter>sprint2\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sprint2\Synonyms.cpp">
+      <Filter>sprint2\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sprint2\Testing.cpp">
+      <Filter>sprint2\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +117,35 @@
     </ClInclude>
     <ClInclude Include="sprint1\TaskTracker.h">
       <Filter>sprint1\Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="sprint2\Testing.h">
+      <Filter>sprint2\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sprint2\Synonyms.h">
+      <Filter>sprint2\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sprint2\SSTesting.h">
+      <Filter>sprint2\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sprint2\sprint2.h">
+      <Filter>sprint2\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sprint2\SearchServerTest.h">
+      <Filter>sprint2\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sprint2\SearchServer.h">
+      <Filter>sprint2\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sprint2\ReadFromConsole.h">
+      <Filter>sprint2\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sprint2\FrameworkForTesting.h">
+      <Filter>sprint2\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sprint2\Buses.h">
+      <Filter>sprint2\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

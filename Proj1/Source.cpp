@@ -3,10 +3,12 @@
 
 #include <iostream>
 #include "sprint1/Sprint1.h"
+#include "sprint2/sprint2.h"
 
 int main()
 {
     std::cout << "Hello World!\n";
-    Sprint1();
+    ssprint1::Sprint1();
+    //Sprint2::Sprint2();
 }
 
