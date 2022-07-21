@@ -140,11 +140,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="SearchServer.cpp" />
     <ClCompile Include="Rational.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animal.h" />
+    <ClInclude Include="SearchServer.h" />
     <ClInclude Include="ObjectLifeCycle.h" />
     <ClInclude Include="Rational.h" />
     <ClInclude Include="sprint3.h" />
