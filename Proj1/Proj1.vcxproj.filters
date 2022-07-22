@@ -30,8 +30,8 @@
     <ClCompile Include="Rational.cpp">
       <Filter>sprint3\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SearchServer.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="SearchServer3.cpp">
+      <Filter>sprint3\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -41,14 +41,20 @@
     <ClInclude Include="Animal.h">
       <Filter>sprint3\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SearchServer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ObjectLifeCycle.h">
       <Filter>sprint3</Filter>
     </ClInclude>
     <ClInclude Include="sprint3.h">
       <Filter>sprint3</Filter>
+    </ClInclude>
+    <ClInclude Include="Overloading.h">
+      <Filter>sprint3\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchServer3.h">
+      <Filter>sprint3\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Exeptions.h">
+      <Filter>sprint3\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

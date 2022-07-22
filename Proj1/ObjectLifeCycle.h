@@ -1,6 +1,6 @@
 #pragma once
 #include "Rational.h"
-#include "SearchServer.h"
+#include "SearchServer3.h"
 
 Rational Add(Rational r1, Rational r2) {
     int numerator = r1.Numerator() * r2.Denominator() + r2.Numerator() * r1.Denominator();
@@ -19,6 +19,7 @@ void ObjectLifeCycle()
     set<string> stop_words_set = { "и"s, "в"s, "на"s };
     auto asdsa = { "и"s, "в"s, "на"s };
     vector<string> stop_words_vector = { "и"s, "в"s, "на"s, ""s, "в"s };
+    sprint3::SearchServer search_server1(stop_words_set);
     sprint3::SearchServer search_server2(stop_words_vector);
     sprint3::SearchServer search_server3("  и  в на   "s);
     sprint3::SearchServer ss;

@@ -1,4 +1,4 @@
-#include "SearchServer.h"
+#include "SearchServer3.h"
 
 
 namespace sprint3 {
@@ -7,17 +7,13 @@ namespace sprint3 {
 		for (string str : SplitIntoWords(stop_words))
 			stop_words_.insert(str);
 	}
-	//template <typename StringCollection> 
-	//SearchServer::SearchServer(const StringCollection& stop_words_container)
-	//{
-	//	for (string str : stop_words_container)
-	//		stop_words_.insert(str);
-	//}
+
 	void SearchServer::SetStopWords(const string& text) {
 		for (const string& word : SplitIntoWords(text)) {
 			stop_words_.insert(word);
 		}
 	}
+
 	vector<string> SearchServer::SplitIntoWords(const string& text) const
 	{
 		vector<string> words;
@@ -38,7 +34,19 @@ namespace sprint3 {
 		return words;
 	}
 
-	void SearchServer::AddDocument(int document_id, const string& document, DocumentStatus status, const vector<int>& ratings) {
+	bool SearchServer::IsSymbol(const char& ch)const
+	{
+		return (ch >= 0 && ch <= 31);
+	}
+
+	bool SearchServer::AddDocument(int document_id, const string& document, DocumentStatus status, const vector<int>& ratings) {
+		if (documents_.find(document_id) != documents_.end())
+			return false;
+		if (document_id < 0)
+			return false;
+		for(char ch: document)
+			if (IsSymbol(ch))
+				return false;
 		const vector<string> words = SplitIntoWordsNoStop(document);
 		const double inv_word_count = 1.0 / words.size();
 		for (const string& word : words) {
@@ -49,10 +57,26 @@ namespace sprint3 {
 				ComputeAverageRating(ratings),
 				status
 			});
+		return true;
 	}
+
+	bool SearchServer::CheckStopWords(const set<string> minus_words)const
+	{
+		for (string str : minus_words)
+			if (str == "")
+				return true;
+			else
+				for (char ch : str)
+					if (IsSymbol(ch) || ch == '-')
+						return true;
+		return false;
+	}
+
 	template <typename DocumentPredicate>
-	vector<Document> SearchServer::FindTopDocuments(const string& raw_query, DocumentPredicate document_predicate) const {
+	bool SearchServer::FindTopDocuments(const string& raw_query, vector<Document>& documents, DocumentPredicate document_predicate) const {
 		const Query query = ParseQuery(raw_query);
+		if (CheckStopWords(query.minus_words))
+			return false;
 		auto matched_documents = FindAllDocuments(query, document_predicate);
 
 		sort(matched_documents.begin(), matched_documents.end(),
@@ -67,14 +91,16 @@ namespace sprint3 {
 		if (matched_documents.size() > MAX_RESULT_DOCUMENT_COUNT) {
 			matched_documents.resize(MAX_RESULT_DOCUMENT_COUNT);
 		}
-		return matched_documents;
+		documents = matched_documents;
+		return true;
 	}
-	vector<Document> SearchServer::FindTopDocuments(const string& raw_query, DocumentStatus status) const {
-		return FindTopDocuments(raw_query, [status](int document_id, DocumentStatus document_status, int rating) { return document_status == status; });
+	bool SearchServer::FindTopDocuments(const string& raw_query, vector<Document>& documents, DocumentStatus status) const {
+		return FindTopDocuments(raw_query, documents,[status](int document_id, DocumentStatus document_status, int rating) { return document_status == status; });
 	}
-	vector<Document> SearchServer::FindTopDocuments(const string& raw_query) const {
-		return FindTopDocuments(raw_query, DocumentStatus::ACTUAL);
+	bool SearchServer::FindTopDocuments(const string& raw_query , vector<Document>& documents) const {
+		return FindTopDocuments(raw_query, documents, DocumentStatus::ACTUAL);
 	}
+
 	int SearchServer::GetDocumentCount() const {
 		return documents_.size();
 	}
@@ -118,10 +144,6 @@ namespace sprint3 {
 		return { matched_words, documents_.at(document_id).status };
 	}
 
-	bool SearchServer::IsStopWord(const string& word) const {
-		return stop_words_.count(word) > 0;
-	}
-
 	vector<string> SearchServer::SplitIntoWordsNoStop(const string& text) const {
 		vector<string> words;
 		for (const string& word : SplitIntoWords(text)) {
@@ -157,11 +179,17 @@ namespace sprint3 {
 		};
 	}
 
+	bool SearchServer::IsStopWord(const string& word) const
+	{
+		return stop_words_.count(word) > 0;
+	}
+
 	double SearchServer::ComputeWordInverseDocumentFreq(const string& word) const {
 		return log(GetDocumentCount() * 1.0 / word_to_document_freqs_.at(word).size());
 	}
 	template <typename DocumentPredicate>
-	vector<Document> SearchServer::FindAllDocuments(const Query& query, DocumentPredicate document_predicate) const {
+	vector<Document> SearchServer::FindAllDocuments(const Query& query, DocumentPredicate document_predicate) const 
+	{
 		map<int, double> document_to_relevance;
 		for (const string& word : query.plus_words) {
 			if (word_to_document_freqs_.count(word) == 0) {
