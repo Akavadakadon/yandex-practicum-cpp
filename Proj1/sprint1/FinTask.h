@@ -1,5 +1,5 @@
 #pragma once
-#include "SearchServer.h"
+#include "../sprint2/SearchServer.h"
 
 
 void FinTask();
