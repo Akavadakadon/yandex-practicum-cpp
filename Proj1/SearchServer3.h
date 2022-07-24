@@ -48,8 +48,13 @@ namespace sprint3 {
 		template <typename DocumentPredicate> [[nodiscard]] bool FindTopDocuments(const string& raw_query, vector<Document>& documents, DocumentPredicate document_predicate) const;
 		[[nodiscard]] bool FindTopDocuments(const string& raw_query, vector<Document>& documents, DocumentStatus status) const;
 		[[nodiscard]] bool FindTopDocuments(const string& raw_query, vector<Document>& documents) const;
+		template <typename DocumentPredicate>
+		optional<vector<Document>> FindTopDocuments(const string& raw_query, DocumentPredicate document_predicate) const;
+		optional<vector<Document>> FindTopDocuments(const string& raw_query, DocumentStatus status) const;
+		optional<vector<Document>> FindTopDocuments(const string& raw_query) const;
 		int GetDocumentCount() const;
-		tuple<vector<string>, DocumentStatus> MatchDocument(const string& raw_query, int document_id) const;
+		//tuple<vector<string>, DocumentStatus> MatchDocument(const string& raw_query, int document_id) const;
+		optional<tuple<vector<string>, DocumentStatus>> MatchDocument(const string& raw_query, int document_id) const;
 
 		explicit SearchServer() = default;
 		explicit SearchServer(const string stop_words);

@@ -100,6 +100,38 @@ namespace sprint3 {
 	bool SearchServer::FindTopDocuments(const string& raw_query , vector<Document>& documents) const {
 		return FindTopDocuments(raw_query, documents, DocumentStatus::ACTUAL);
 	}
+	template <typename DocumentPredicate>
+	optional<vector<Document>> SearchServer::FindTopDocuments(const string& raw_query, DocumentPredicate document_predicate) const
+	{
+		const Query query = ParseQuery(raw_query);
+		if (CheckStopWords(query.minus_words))
+			return nullopt;
+		auto matched_documents = FindAllDocuments(query, document_predicate);
+
+		sort(matched_documents.begin(), matched_documents.end(),
+			[](const Document& lhs, const Document& rhs) {
+				if (abs(lhs.relevance - rhs.relevance) < 1e-6) {
+					return lhs.rating > rhs.rating;
+				}
+				else {
+					return lhs.relevance > rhs.relevance;
+				}
+			});
+		if (matched_documents.size() == 0)
+			return nullopt;
+		if (matched_documents.size() > MAX_RESULT_DOCUMENT_COUNT) {
+			matched_documents.resize(MAX_RESULT_DOCUMENT_COUNT);
+		}
+		return matched_documents;
+	}
+	optional<vector<Document>> SearchServer::FindTopDocuments(const string& raw_query, DocumentStatus status) const
+	{
+		return FindTopDocuments(raw_query, [status](int document_id, DocumentStatus document_status, int rating) { return document_status == status; });
+	}
+	optional<vector<Document>> SearchServer::FindTopDocuments(const string& raw_query) const
+	{
+		return FindTopDocuments(raw_query, DocumentStatus::ACTUAL);
+	}
 
 	int SearchServer::GetDocumentCount() const {
 		return documents_.size();
@@ -121,7 +153,7 @@ namespace sprint3 {
 		return query;
 	}
 
-	tuple<vector<string>, DocumentStatus> SearchServer::MatchDocument(const string& raw_query, int document_id) const {
+	optional<tuple<vector<string>, DocumentStatus>> SearchServer::MatchDocument(const string& raw_query, int document_id) const {
 		Query query = ParseQuery(raw_query);
 		vector<string> matched_words;
 		for (const string& word : query.plus_words) {
@@ -141,7 +173,9 @@ namespace sprint3 {
 				break;
 			}
 		}
-		return { matched_words, documents_.at(document_id).status };
+		if (matched_words.size() == 0)
+			return nullopt;
+		return tuple{ matched_words, documents_.at(document_id).status };
 	}
 
 	vector<string> SearchServer::SplitIntoWordsNoStop(const string& text) const {
